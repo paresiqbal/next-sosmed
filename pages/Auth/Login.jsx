@@ -1,7 +1,6 @@
 import { FaGithub, FaFacebook, FaGoogle } from "react-icons/fa";
 
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { async } from "@firebase/util";
 import { auth } from "@/utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 

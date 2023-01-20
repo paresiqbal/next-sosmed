@@ -1,4 +1,4 @@
-import Message from "../../components/Message";
+import Message from "@/components/Message";
 import { useEffect, useState } from "react";
 
 import { db } from "@/utils/firebase";
