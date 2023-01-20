@@ -1,4 +1,4 @@
-export default function ({ children, avatar, username, description }) {
+export default function Message({ children, avatar, username, description }) {
   return (
     <div className="bg-secondary-blue p-6 border-b-2 rounded-md">
       <div className="flex items-center gap-2">
