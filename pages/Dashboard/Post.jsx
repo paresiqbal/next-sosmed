@@ -8,7 +8,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";

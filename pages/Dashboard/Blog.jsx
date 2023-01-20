@@ -2,7 +2,6 @@ import Message from "../../components/Message";
 import { useEffect, useState } from "react";
 
 import { db } from "@/utils/firebase";
-import { async } from "@firebase/util";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 
