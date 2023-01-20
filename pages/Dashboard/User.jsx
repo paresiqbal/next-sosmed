@@ -11,7 +11,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import Message from "@/components/Message";
+import Message from "../../components/Message";
 
 import { FiDelete, FiEdit } from "react-icons/fi";
 import Link from "next/link";
