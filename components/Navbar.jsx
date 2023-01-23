@@ -31,8 +31,8 @@ export default function () {
             </Link>
             <Link href="/Dashboard/User">
               <img
-                src="{user.photoURL}"
-                className="w-12 rounded-full cursor-pointer"
+                src={user.photoURL}
+                className="w-9 rounded-full cursor-pointer"
               />
             </Link>
           </div>

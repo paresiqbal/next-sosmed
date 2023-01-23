@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import { FaReact } from "react-icons/fa";
-
 export default function Home() {
   return (
     <>
@@ -25,7 +23,7 @@ export default function Home() {
             Development and build by using Next.js 13, Taillwind CSS, React
             Icons, Toaster, Framer Motion, and Firebase as BaaS.
           </h1>
-          <div className="flex flex-col text-center justify-center gap-5 pt-16 pb-40">
+          <div className="flex flex-col text-center justify-center gap-5 pt-16 pb-40 lg:flex-row">
             <Link
               href="/Auth/Login"
               className="text-xl font-semibold text-white py-3 px-14 rounded-lg bg-gray-700"
@@ -41,14 +39,14 @@ export default function Home() {
         <div className=" text-center text-white text-2xl justify-center bg-black py-10">
           <h1>Build With</h1>
           <div className="container">
-            <div className="flex flex-col text-center justify-center gap-5 pt-16 pb-40">
-              <button className="font-semibold outline rounded-md py-2 gap-2">
+            <div className="flex flex-col text-center justify-center gap-5 pt-16 pb-40 lg:flex-row">
+              <button className="font-semibold outline rounded-md py-2 px-10 gap-2">
                 Next.js 13
               </button>
-              <button className="font-semibold outline rounded-md py-2">
+              <button className="font-semibold outline rounded-md py-2 px-10 gap-2">
                 Tailwind
               </button>
-              <button className="font-semibold outline rounded-md py-2">
+              <button className="font-semibold outline rounded-md py-2 px-10 gap-2">
                 Firebase
               </button>
             </div>

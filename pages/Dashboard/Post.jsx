@@ -1,24 +1,36 @@
-import { auth, db } from "@/utils/firebase";
+import { auth, db, storage } from "@/utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
   addDoc,
   collection,
   doc,
+  setDoc,
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
+import {
+  ref,
+  getDownloadURL,
+  getStorage,
+  uploadBytes,
+  listAll,
+} from "firebase/storage";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
+import { v4 } from "uuid";
 
 export default function () {
   //Form state
   const [post, setPost] = useState({ description: "" });
   const [user, loading] = useAuthState(auth);
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageList, setImageList] = useState([]);
   const route = useRouter();
 
+  const imageListRef = ref(storage, "posts/");
   const routeData = route.query;
 
   //Post
@@ -51,7 +63,7 @@ export default function () {
       await updateDoc(docRef, updatedPost);
 
       //Toas notification
-      toast.success("Post has been Edited 👌 !", {
+      toast.success("Post has been Edited 👌", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
@@ -66,11 +78,21 @@ export default function () {
         user: user.uid,
         avatar: user.photoURL,
         username: user.displayName,
+      }).then((document) => {
+        //Upload Image
+        if (imageUpload) {
+          const imageRef = ref(storage, `posts/${imageUpload.name + v4()}`);
+          uploadBytes(imageRef, imageUpload).then((snaphot) => {
+            getDownloadURL(snaphot.ref).then((url) => {
+              setImageList((prev) => [...prev, url]);
+            });
+          });
+        }
       });
       setPost({ description: "" });
 
       //Toas notification
-      toast.success("Post has been made successfully 😀 !", {
+      toast.success("Post has been made successfully 😀", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
@@ -91,6 +113,13 @@ export default function () {
 
   useEffect(() => {
     checkUser();
+    listAll(imageListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageList((prev) => [...prev, url]);
+        });
+      });
+    });
   }, [user, loading]);
 
   return (
@@ -104,8 +133,15 @@ export default function () {
           <textarea
             value={post.description}
             onChange={(e) => setPost({ ...post, description: e.target.value })}
-            className="bg-gray-800 h-48 w-full text-white rounded-md p-2 text-sm"
+            className="bg-gray-800 h-48 w-full text-white rounded-md p-2 text-sm relative outline-none"
+            placeholder="Share something"
           ></textarea>
+          <input
+            type="file"
+            onChange={(event) => {
+              setImageUpload(event.target.files[0]);
+            }}
+          />
           <p
             className={`text-whtie font-medium text-sm ${
               post.description.length > 300 ? "text-red-600" : ""
@@ -117,8 +153,11 @@ export default function () {
             type="submit"
             className="bg-primary-green w-full font-semibold p-2 my-2 rounded-md"
           >
-            Submit
+            Upload
           </button>
+          {imageList.map((url) => {
+            return <img src={url} />;
+          })}
         </div>
       </form>
     </div>
