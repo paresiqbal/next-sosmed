@@ -141,6 +141,7 @@ export default function () {
             onChange={(event) => {
               setImageUpload(event.target.files[0]);
             }}
+            className="text-sm "
           />
           <p
             className={`text-whtie font-medium text-sm ${

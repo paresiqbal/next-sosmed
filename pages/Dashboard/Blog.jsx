@@ -41,7 +41,7 @@ export default function () {
                   <BiComment />
                   {post.comments?.length > 0 ? post.comments?.length : 0}
                 </button>
-                <button className="flex items-center justify-center gap-2 py-2 text-sm">
+                {/* <button className="flex items-center justify-center gap-2 py-2 text-sm">
                   <BiLike /> 1K
                 </button>
                 <button className="flex items-center justify-center gap-2 py-2 text-sm">
@@ -49,7 +49,7 @@ export default function () {
                 </button>
                 <button className="flex items-center justify-center gap-2 py-2 text-sm">
                   <BiShare /> 57
-                </button>
+                </button> */}
               </div>
             </Link>
           </Message>
