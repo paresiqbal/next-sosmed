@@ -11,6 +11,8 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "@/utils/firebase";
 
+import { BiSend } from "react-icons/bi";
+
 export default function Chat(props) {
   const { room } = props;
   const [newMessage, setNewMessage] = useState("");
@@ -50,25 +52,28 @@ export default function Chat(props) {
   };
 
   return (
-    <div className="container">
-      <div className="flex items-center justify-center">
-        <h1>{room.toUpperCase()}</h1>
-      </div>
+    <div>
+      <h1 className="text-2xl pb-5 underline font-medium">
+        {room.toUpperCase()}
+      </h1>
       <div>
         {messages.map((message) => (
           <div key={message.id}>
-            <span>{message.user}</span>
+            <span className="pr-2">{message.user}:</span>
             {message.text}
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="pt-5 flex text-md text-white ">
         <input
           placeholder="Type message"
           onChange={(e) => setNewMessage(e.target.value)}
           value={newMessage}
+          className="bg-gray-800 w-full rounded-l-md"
         />
-        <button type="submit">Send</button>
+        <button type="submit" className="bg-gray-800 rounded-r-md px-2">
+          <BiSend />
+        </button>
       </form>
     </div>
   );
