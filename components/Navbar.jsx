@@ -29,6 +29,12 @@ export default function () {
             >
               Post
             </Link>
+            <Link
+              href="/Dashboard/ChatRoom"
+              className="font-semibold text-base bg-primary-green px-4 py-2 rounded-md"
+            >
+              Chat
+            </Link>
             <Link href="/Dashboard/User">
               <img
                 src={user.photoURL}

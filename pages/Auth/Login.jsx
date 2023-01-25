@@ -13,6 +13,7 @@ export default function () {
 
   //Sign in with Google
   const googleProvider = new GoogleAuthProvider();
+
   const GoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
