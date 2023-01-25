@@ -7,7 +7,7 @@ export default function () {
   const [user, loading] = useAuthState(auth);
 
   return (
-    <div className="p-5 shadow-md flex justify-between text-xl">
+    <div className="p-5 shadow-md text-xl flex flex-col items-center gap-2 lg:flex lg:flex-row lg:justify-between">
       <div className="flex gap-4">
         <Link href="/">Home</Link>
         <Link href="/Dashboard/Blog">Blog</Link>
@@ -28,6 +28,12 @@ export default function () {
               className="font-semibold text-base bg-primary-green px-4 py-2 rounded-md"
             >
               Post
+            </Link>
+            <Link
+              href="/Dashboard/PostImage"
+              className="font-semibold text-base bg-primary-green px-4 py-2 rounded-md"
+            >
+              Post Image
             </Link>
             <Link
               href="/Dashboard/ChatRoom"
