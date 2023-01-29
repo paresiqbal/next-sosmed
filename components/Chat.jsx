@@ -53,25 +53,25 @@ export default function Chat(props) {
 
   return (
     <div>
-      <h1 className="text-2xl pb-5 underline font-medium">
+      <h1 className="text-2xl pb-5 underline decoration-purple-600 font-medium">
         {room.toUpperCase()}
       </h1>
-      <div>
+      <div className="py-2">
         {messages.map((message) => (
-          <div key={message.id}>
+          <div key={message.id} className=" text-white rounded-lg py-1">
             <span className="pr-2">{message.user}:</span>
             {message.text}
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit} className="pt-5 flex text-md text-white ">
+      <form onSubmit={handleSubmit} className="pt-5 flex text-md text-white">
         <input
           placeholder="Type message"
           onChange={(e) => setNewMessage(e.target.value)}
           value={newMessage}
-          className="bg-gray-800 w-full rounded-l-md"
+          className="bg-gray-800 w-full rounded-l-md py-1"
         />
-        <button type="submit" className="bg-gray-800 rounded-r-md px-2">
+        <button type="submit" className="bg-cyan-600 rounded-r-md px-3">
           <BiSend />
         </button>
       </form>

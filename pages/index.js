@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { SiNextdotjs, SiTailwindcss, SiFirebase } from "react-icons/si";
 
 export default function Home() {
   return (
@@ -40,14 +41,14 @@ export default function Home() {
           <h1>Build With</h1>
           <div className="container">
             <div className="flex flex-col text-center justify-center gap-5 pt-16 pb-40 lg:flex-row">
-              <button className="font-semibold outline rounded-md py-2 px-10 gap-2">
-                Next.js 13
+              <button className="flex justify-center items-center font-semibold outline rounded-md py-2 px-10 gap-2">
+                Next.js 13 <SiNextdotjs />
               </button>
-              <button className="font-semibold outline rounded-md py-2 px-10 gap-2">
-                Tailwind
+              <button className="flex justify-center items-center font-semibold outline rounded-md py-2 px-10 gap-2">
+                Tailwind <SiTailwindcss />
               </button>
-              <button className="font-semibold outline rounded-md py-2 px-10 gap-2">
-                Firebase
+              <button className="flex justify-center items-center font-semibold outline rounded-md py-2 px-10 gap-2">
+                Firebase <SiFirebase />
               </button>
             </div>
           </div>

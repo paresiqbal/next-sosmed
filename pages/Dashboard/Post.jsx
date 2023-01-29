@@ -125,7 +125,7 @@ export default function () {
   return (
     <div className="my-20 p-12 shadow-lg max-w-md mx-auto">
       <form onSubmit={submitPost}>
-        <h1 className="text-2xl font-bold ">
+        <h1 className="text-2xl font-bold underline decoration-purple-600">
           {post.hasOwnProperty("id") ? "Edit your post" : "Create a new post"}
         </h1>
         <div className="py-2">

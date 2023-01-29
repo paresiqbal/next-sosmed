@@ -48,7 +48,9 @@ export default function () {
 
   return (
     <div className="container">
-      <div>Profile</div>
+      <div>
+        <h1>Profile</h1>
+      </div>
       <div className="py-4">
         <div>Posts</div>
         {posts.map((post) => (

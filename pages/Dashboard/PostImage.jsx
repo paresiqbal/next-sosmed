@@ -35,17 +35,31 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <input
-        type="file"
-        onChange={(event) => {
-          setImageUpload(event.target.files[0]);
-        }}
-      />
-      <button onClick={uploadFile}> Upload Image</button>
-      {imageUrls.map((url) => {
-        return <img src={url} />;
-      })}
+    <div className="my-20 max-w-md mx-auto ">
+      <h1 className="text-3xl text-center font font-semibold underline decoration-purple-600 pb-8">
+        Gallery
+      </h1>
+      <p className="pb-2">Share your story with photo</p>
+      <div className="flex flex-col shadow-lg">
+        <input
+          type="file"
+          onChange={(event) => {
+            setImageUpload(event.target.files[0]);
+          }}
+          className="pb-2"
+        />
+        <button
+          onClick={uploadFile}
+          className="bg-gray-800 py-2 px-4 rounded-md text-white font-semibold"
+        >
+          Upload Image
+        </button>
+      </div>
+      <div className="py-5 px-2">
+        {imageUrls.map((url) => {
+          return <img src={url} />;
+        })}
+      </div>
     </div>
   );
 }

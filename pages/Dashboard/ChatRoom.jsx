@@ -7,7 +7,7 @@ export default function ChatRoom() {
   const roomInputRef = useRef(null);
 
   return (
-    <div className="my-20 p-12 shadow-lg max-w-md mx-auto">
+    <div className="my-20 p-5 shadow-lg max-w-md mx-auto bg-gray-700 rounded-md text-white">
       {room ? (
         <Chat room={room} />
       ) : (
@@ -15,6 +15,7 @@ export default function ChatRoom() {
           <div className="flex flex-col gap-4">
             <label className="text-2xl font-semibold py-8">
               Enter Room Code:
+              <h1 className="text-sm">Note: room1, room2</h1>
             </label>
             <input
               className="outline outline-purple-600 rounded-md pt-2 text-sm"
