@@ -41,7 +41,11 @@ export default function () {
             >
               Chat
             </Link>
-            <Link href="/Dashboard/User">
+            <Link
+              href="/Dashboard/User"
+              className="lg:flex items-center align-middle gap-1"
+            >
+              <p className="text-sm ">{user.displayName}</p>
               <img
                 src={user.photoURL}
                 className="w-9 rounded-full cursor-pointer"
