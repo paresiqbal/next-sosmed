@@ -22,7 +22,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
 
-export default function () {
+export default function Post() {
   //Form state
   const [post, setPost] = useState({ description: "" });
   const [user, loading] = useAuthState(auth);

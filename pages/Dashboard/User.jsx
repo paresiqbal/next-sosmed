@@ -15,8 +15,9 @@ import Message from "@/components/Message";
 
 import { FiDelete, FiEdit } from "react-icons/fi";
 import Link from "next/link";
+import Profile from "./Profile";
 
-export default function () {
+export default function User() {
   const route = useRouter();
   const [user, loading] = useAuthState(auth);
   const [posts, setPosts] = useState([]);
@@ -50,6 +51,7 @@ export default function () {
     <div className="container">
       <div>
         <h1>Profile</h1>
+        <Profile />
       </div>
       <div className="py-4">
         <div>Posts</div>

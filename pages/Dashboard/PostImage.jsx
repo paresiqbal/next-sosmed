@@ -9,7 +9,7 @@ import {
 import { storage } from "@/utils/firebase";
 import { v4 } from "uuid";
 
-function App() {
+export default function Postimage() {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
 
@@ -63,5 +63,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

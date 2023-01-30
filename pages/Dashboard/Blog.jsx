@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import { BiComment, BiLike, BiDislike, BiShare } from "react-icons/bi";
 
-export default function () {
+export default function Blog() {
   //Create state all of the post
   const [allPost, setAllPost] = useState([]);
 
