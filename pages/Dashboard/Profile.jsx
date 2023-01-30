@@ -20,14 +20,13 @@ export default function Navbar() {
         )}
         {user && (
           <div>
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-2 lg:flex-row">
               <img className="rounded-full w-25" src={user.photoURL} />
-              <h1 className="font-semibold underline decoration-purple-500">
+              <h1 className="font-semibold underline decoration-purple-500 lg:text-2xl">
                 {user.displayName}
               </h1>
               <p className="text-sm">{user.email}</p>
             </div>
-            <div>Creat at</div>
           </div>
         )}
       </div>

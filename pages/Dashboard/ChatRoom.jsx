@@ -18,7 +18,7 @@ export default function ChatRoom() {
               <h1 className="text-sm">Note: room1, room2</h1>
             </label>
             <input
-              className="outline outline-purple-600 rounded-md pt-2 text-sm"
+              className="outline outline-purple-600 rounded-md pt-2 text-sm text-black"
               ref={roomInputRef}
             />
             <button

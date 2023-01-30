@@ -55,7 +55,7 @@ export default function Postimage() {
           Upload Image
         </button>
       </div>
-      <div className="py-5 px-2">
+      <div className="flex max-w-6xl w-full flex-wrap">
         {imageUrls.map((url) => {
           return <img src={url} />;
         })}
