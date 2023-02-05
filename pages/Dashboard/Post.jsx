@@ -81,7 +81,11 @@ export default function Post() {
       }).then((document) => {
         //Upload Image
         if (imageUpload) {
-          const imageRef = ref(storage, `posts/${imageUpload.name + v4()}`);
+          const imageRef = ref(
+            storage,
+            `posts/${imageUpload.name + v4()}`,
+            post.id
+          );
           uploadBytes(imageRef, imageUpload).then((snaphot) => {
             getDownloadURL(snaphot.ref).then((url) => {
               setImageList((prev) => [...prev, url]);

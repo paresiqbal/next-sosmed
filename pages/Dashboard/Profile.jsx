@@ -27,6 +27,7 @@ export default function Navbar() {
               </h1>
               <p className="text-sm">{user.email}</p>
             </div>
+  
           </div>
         )}
       </div>
