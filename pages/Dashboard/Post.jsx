@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
+import { async } from "@firebase/util";
 
 export default function Post() {
   //Form state
@@ -72,26 +73,29 @@ export default function Post() {
     } else {
       //Make new post
       const collectionRef = collection(db, "posts");
+      let imageUrl = null;
+
+      if (imageUpload) {
+        const imageRef = ref(
+          storage,
+          `posts/${imageUpload.name + v4()}`,
+          post.id
+        );
+        await uploadBytes(imageRef, imageUpload).then(async (snaphot) => {
+          await getDownloadURL(snaphot.ref).then((url) => {
+            imageUrl = url;
+            setImageList((prev) => [...prev, url]);
+          });
+        });
+      }
+
       await addDoc(collectionRef, {
         ...post,
         timestamp: serverTimestamp(),
         user: user.uid,
         avatar: user.photoURL,
         username: user.displayName,
-      }).then((document) => {
-        //Upload Image
-        if (imageUpload) {
-          const imageRef = ref(
-            storage,
-            `posts/${imageUpload.name + v4()}`,
-            post.id
-          );
-          uploadBytes(imageRef, imageUpload).then((snaphot) => {
-            getDownloadURL(snaphot.ref).then((url) => {
-              setImageList((prev) => [...prev, url]);
-            });
-          });
-        }
+        imageUrl: imageUrl,
       });
       setPost({ description: "" });
 
@@ -120,6 +124,7 @@ export default function Post() {
     listAll(imageListRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
+          console.log(url);
           setImageList((prev) => [...prev, url]);
         });
       });

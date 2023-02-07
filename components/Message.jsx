@@ -1,4 +1,10 @@
-export default function Message({ children, avatar, username, description }) {
+export default function Message({
+  children,
+  avatar,
+  username,
+  description,
+  imageUrl,
+}) {
   return (
     <div className="bg-secondary-blue p-6 border-b-2 rounded-md">
       <div className="flex items-center gap-2">
@@ -10,6 +16,9 @@ export default function Message({ children, avatar, username, description }) {
       </div>
       <div className="py-5">
         <p>{description}</p>
+      </div>
+      <div>
+        <img src={imageUrl} alt="" />
       </div>
       {children}
     </div>
