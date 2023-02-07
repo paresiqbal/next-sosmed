@@ -21,7 +21,6 @@ import { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import { v4 } from "uuid";
-import { async } from "@firebase/util";
 
 export default function Post() {
   //Form state
@@ -165,9 +164,9 @@ export default function Post() {
           >
             Upload
           </button>
-          {imageList.map((url) => {
+          {/* {imageList.map((url) => {
             return <img src={url} />;
-          })}
+          })} */}
         </div>
       </form>
     </div>

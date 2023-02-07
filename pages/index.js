@@ -1,3 +1,4 @@
+"use client";
 import Head from "next/head";
 import Link from "next/link";
 import { SiNextdotjs, SiTailwindcss, SiFirebase } from "react-icons/si";
@@ -27,17 +28,20 @@ export default function Home() {
           <div className="flex flex-col text-center justify-center gap-5 pt-16 pb-40 lg:flex-row">
             <Link
               href="/Auth/Login"
-              className="text-xl font-semibold text-white py-3 px-14 rounded-lg bg-gray-700"
+              className="text-xl font-semibold text-white py-3 px-14 rounded-lg bg-gray-700 hover:bg-gray-800"
             >
               Start Using
             </Link>
-            <button className="text-xl font-semibold text-purple-500 py-3 px-14 rounded-lg bg-white shadow-lg outline outline-1 outline-inherit">
+            <Link
+              href="https://nextype-portfolio.vercel.app/"
+              className="text-xl font-semibold text-purple-500 py-3 px-14 rounded-lg bg-white shadow-lg outline outline-1 outline-inherit hover:outline-2"
+            >
               Portfolio
-            </button>
+            </Link>
           </div>
         </div>
 
-        <div className=" text-center text-white text-2xl justify-center bg-black py-10">
+        <div className=" text-center text-white text-2xl justify-center bg-gray-800 py-10">
           <h1>Build With</h1>
           <div className="container">
             <div className="flex flex-col text-center justify-center gap-5 pt-16 pb-40 lg:flex-row">
