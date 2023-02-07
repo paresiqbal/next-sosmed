@@ -18,7 +18,7 @@ export default function Message({
         <p>{description}</p>
       </div>
       <div>
-        <img src={imageUrl} alt="" />
+        <img src={imageUrl} className="pb-2 rounded-md" />
       </div>
       {children}
     </div>

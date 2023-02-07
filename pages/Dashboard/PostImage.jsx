@@ -35,27 +35,30 @@ export default function Postimage() {
   }, []);
 
   return (
-    <div className="my-20 max-w-md mx-auto ">
-      <h1 className="text-3xl text-center font font-semibold underline decoration-purple-600 pb-8">
-        Gallery
-      </h1>
-      <p className="pb-2">Share your story with photo</p>
-      <div className="flex flex-col shadow-lg">
-        <input
-          type="file"
-          onChange={(event) => {
-            setImageUpload(event.target.files[0]);
-          }}
-          className="pb-2"
-        />
-        <button
-          onClick={uploadFile}
-          className="bg-gray-800 py-2 px-4 rounded-md text-white font-semibold"
-        >
-          Upload Image
-        </button>
+    <div>
+      <div className="my-20 max-w-md mx-auto ">
+        <h1 className="text-3xl text-center font font-semibold underline decoration-purple-600 pb-8">
+          Gallery
+        </h1>
+        <p className="pb-2">Share your story with photo</p>
+        <div className="flex flex-col shadow-lg">
+          <input
+            type="file"
+            onChange={(event) => {
+              setImageUpload(event.target.files[0]);
+            }}
+            className="pb-2"
+          />
+          <button
+            onClick={uploadFile}
+            className="bg-gray-800 py-2 px-4 rounded-md text-white font-semibold"
+          >
+            Upload Image
+          </button>
+        </div>
       </div>
-      <div className="flex max-w-6xl w-full flex-wrap">
+
+      <div className="container grid gap-16 grid-cols-fluid">
         {imageUrls.map((url) => {
           return <img src={url} />;
         })}
